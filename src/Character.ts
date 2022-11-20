@@ -73,7 +73,7 @@ export default class Character implements Fighter {
   }
 
   attack(enemy: Fighter): void {
-    this.receiveDamage(enemy.strength);
+    enemy.receiveDamage(this._strength);
   }
 
   levelUp(): void {
@@ -87,5 +87,9 @@ export default class Character implements Fighter {
       this._maxLifePoints = this._race.maxLifePoints;
     }
     this._lifePoints = this._maxLifePoints;
+  }
+
+  special(enemy: Fighter): void {
+    enemy.receiveDamage(this._strength + 10);
   }
 }
